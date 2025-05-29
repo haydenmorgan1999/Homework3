@@ -1,0 +1,63 @@
+---
+title: "tidyverse"
+format: pdf
+---
+
+```{r}
+library(tidyverse)
+library(palmerpenguins)
+```
+
+## Task 1
+### Question A
+```{r}
+?read_csv()
+```
+
+**In 1-2 sentences, explain why we can not use specifically the read_csv() to read in these data.**
+This homework assignment asks us to read in two files: data.txt and data2.txt. We are unable to use read_csv() to read in these data because their files do not contain comma separated values--they use semicolons instead. 
+
+```{r}
+data <- read_csv2("Data/data.txt", 
+                  col_names = c("x", "y", "z"))
+
+data
+```
+
+### Question B
+```{r}
+
+```
+
+## Task 2
+### Question A
+```{r}
+
+```
+
+### Question B
+```{r}
+
+```
+
+### Question C
+```{r}
+
+```
+
+## Task 3
+### Question A
+```{r}
+
+```
+
+### Question B
+```{r}
+
+```
+
+## Task 4
+```{r}
+
+
+```
