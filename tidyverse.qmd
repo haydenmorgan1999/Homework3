@@ -77,7 +77,11 @@ On average, player Jusuf Nurkic scored more points at home through the first 10 
 
 **Written answer to Task 3, Question A**
 
-[text here]
+The <NULL> column value is showing that the indicated list is empty - there are no data for Gentoo penguins on the islands Torgersen and Dream, for example, but there ARE data for these penguins on island Biscoe (the only island for Gentoo that did not display <NULL>).
+
+The <dbl [52]> text in the Adelie row, Torgersen column indicates that there is a list of 52 double numeric values present for this species/island pair. 
+
+Finally, <list> appears under each island name, indicating that the data type for all these is list (as opposed to double, character, etc.).
 
 ### Question B
 ```{r}
