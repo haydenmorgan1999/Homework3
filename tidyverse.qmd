@@ -79,7 +79,7 @@ On average, player Jusuf Nurkic scored more points at home through the first 10 
 
 **Written answer to Task 3, Question A**
 
-When trying to pivot the penguins dataset wider, there is an error that is thrown due to non-unique values of bill length. This means that there are some data points that are common across penguins/islands and cannot be distinguished from one another, so there is not a way to show the values with the wider dataset. 
+When trying to pivot the penguins dataset wider, there is an error that is thrown due to non-unique values of bill length. This means that there are some data points that are common across penguins/islands and cannot be distinguished from one another, so there is not a way to show the values distinctly with the wider dataset. 
 
 The NULL column value is showing that the indicated list is empty - there are no data for Gentoo penguins on the islands Torgersen and Dream, for example, but there ARE data for these penguins on island Biscoe (the only island for Gentoo that did not display NULL).
 
