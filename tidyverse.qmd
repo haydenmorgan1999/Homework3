@@ -18,7 +18,7 @@ library(palmerpenguins)
 
 **In 1-2 sentences, explain why we can not use specifically the read_csv() to read in these data.**
 
-The two text files we are prompted to read into R do not contain comma separated values--they use semicolons instead. This is why we cannot use read_csv() and must instead use read_csv2(), due to the difference in delimiter.
+read_csv() can read in files with comma separated values, and read_csv2() can read in files with semicolons as delimiters instead. Because data.txt and data2.txt contain semicolons and not commas, we must use read_csv2() instead of read_csv() to read in the data.
 
 ```{r}
 data <- read_csv2("Data/data.txt")
@@ -52,6 +52,8 @@ trailblazer_longer <- trailblazer |>
                           values_to = "Points")
 
 head(trailblazer_longer, n=5)
+
+trailblazer_longer # showing that there are 90 rows and 4 cols
 ```
 
 ### Question C
@@ -65,7 +67,7 @@ trailblazer_wider <- trailblazer_longer |>
                               points_diff = mean_home - mean_away) |>
                        arrange(desc(points_diff))
   
-print(trailblazer_wider, n = 90)
+trailblazer_wider
 ```
 
 **In 1 sentence, state which players scored, on average, more points at home through the first 10 games of the season than away.**
