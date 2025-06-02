@@ -1,6 +1,8 @@
 ---
 title: "tidyverse"
 format: pdf
+editor_options: 
+  chunk_output_type: console
 ---
 
 ```{r}
@@ -16,11 +18,10 @@ library(palmerpenguins)
 
 **In 1-2 sentences, explain why we can not use specifically the read_csv() to read in these data.**
 
-This homework assignment asks us to read in two files: data.txt and data2.txt. We are unable to use read_csv() to read in these data because their files do not contain comma separated values--they use semicolons instead. 
+The two text files we are prompted to read into R do not contain comma separated values--they use semicolons instead. This is why we cannot use read_csv() and must instead use read_csv2(), due to the difference in delimiter.
 
 ```{r}
-data <- read_csv2("Data/data.txt", 
-                  col_names = TRUE)
+data <- read_csv2("Data/data.txt")
 
 data
 ```
@@ -29,7 +30,6 @@ data
 ```{r}
 six <- read_delim("Data/data2.txt",
                   delim = "6",
-                  col_names = TRUE,
                   col_types = "fdc")
 
 six
@@ -38,21 +38,39 @@ six
 ## Task 2
 ### Question A
 ```{r}
-trailblazer <- read_csv("Data/trailblazer.csv",
-                        col_names = TRUE)
+trailblazer <- read_csv("Data/trailblazer.csv")
 
 glimpse(trailblazer)
 ```
 
 ### Question B
 ```{r}
+trailblazer_longer <- trailblazer |>
+                        pivot_longer(cols = 2:11,
+                          names_to = c("Game", "Location"),
+                          names_sep = "_",
+                          values_to = "Points")
 
+head(trailblazer_longer, n=5)
 ```
 
 ### Question C
 ```{r}
-
+trailblazer_wider <- trailblazer_longer |>
+                       pivot_wider(names_from = Location,
+                                   values_from = Points) |>
+                       group_by(Player) |>
+                       mutate(mean_home = mean(Home, na.rm = T),
+                              mean_away = mean(Away, na.rm = T),
+                              points_diff = mean_home - mean_away) |>
+                       arrange(desc(points_diff))
+  
+print(trailblazer_wider, n = 90)
 ```
+
+**In 1 sentence, state which players scored, on average, more points at home through the first 10 games of the season than away.**
+
+On average, player Jusuf Nurkic scored more points at home through the first 10 games of the season than at away games.
 
 ## Task 3
 ### Question A
@@ -67,6 +85,5 @@ glimpse(trailblazer)
 
 ## Task 4
 ```{r}
-
 
 ```
