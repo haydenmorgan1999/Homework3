@@ -74,16 +74,27 @@ On average, player Jusuf Nurkic scored more points at home through the first 10 
 
 ## Task 3
 ### Question A
-```{r}
 
-```
+**Written answer to Task 3, Question A**
+
+[text here]
 
 ### Question B
 ```{r}
-
+penguins |>
+  group_by(species, island) |>
+  summarize(n = as.numeric(n())) |>
+  pivot_wider(names_from = island,
+              values_from = n,
+              values_fill = 0)
 ```
 
 ## Task 4
 ```{r}
-
+penguins |>
+  mutate(bill_length_mm = case_when(is.na(bill_length_mm) & species == "Adelie" ~ 26,
+            is.na(bill_length_mm) & species == "Gentoo" ~ 30,
+            TRUE ~ bill_length_mm)) |>
+  arrange(bill_length_mm) |>
+  print(n = 10)
 ```
