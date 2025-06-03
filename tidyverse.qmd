@@ -102,8 +102,8 @@ penguins |>
 ## Task 4
 ```{r}
 penguins |>
-  mutate(bill_length_mm = case_when(is.na(bill_length_mm) & species == 
-                                    "Adelie" ~ 26,
+  mutate(bill_length_mm = 
+           case_when(is.na(bill_length_mm) & species == "Adelie" ~ 26,
             is.na(bill_length_mm) & species == "Gentoo" ~ 30,
             TRUE ~ bill_length_mm)) |>
   arrange(bill_length_mm) |>
