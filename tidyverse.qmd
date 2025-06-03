@@ -53,7 +53,7 @@ trailblazer_longer <- trailblazer |>
                           names_sep = "_",
                           values_to = "Points")
 
-head(trailblazer_longer, n=5)
+head(trailblazer_longer, n = 5)
 
 trailblazer_longer # showing that there are 90 rows and 4 cols
 ```
